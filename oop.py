@@ -36,10 +36,38 @@ class user:
     self.__password = password # the double underscore makes it private
 
   def authenticate(self, password): 
-    return self.__password == password #this will return true if the password is correct and false if it is not
+    return self.__password == password 
     
-user = user("hassan", "12345") #this will create a new user
-print (user.authenticate("12345")) #this will return true because the password is correct 
+user = user("hassan", "12345") #
+print (user.authenticate("12345"))
+
+
+
+
+# Base class representing a general user
+class User:
+    # Constructor method to initialize a user with a username
+    def __init__(self, username):
+        self.username = username  # Store the username in the instance
+
+    # Method to simulate the user logging in
+    def logIn(self):
+        print(f"user {self.username} has logged in")  # Output a login message
+
+# Subclass representing an admin, which is a special type of user
+class Admin(User):  # Admin inherits from User
+    # Method specific to Admin: accessing logs
+    def accessLog(self):
+        print(f"admin {self.username} has accessed the log")  # Output access log message
+
+# Create an instance of the Admin class
+admin = Admin("hassan")  # Instantiate an Admin object with the username "hassan"
+
+# Call the inherited method from the User class
+admin.logIn()  # This uses the method defined in the User class
+
+# Call the method defined in the Admin class
+admin.accessLog()  # This uses the method defined in the Admin class
 
 
 
